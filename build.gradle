@@ -1,0 +1,43 @@
+apply plugin: 'application'
+apply plugin: 'java'
+apply plugin: 'com.github.ben-manes.versions'
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.github.ben-manes:gradle-versions-plugin:0.6'
+    }
+}
+
+mainClassName = 'example.Main'
+applicationDefaultJvmArgs = [ "-Dcom.sun.management.jmxremote"
+                            , "-Dcom.sun.management.jmxremote.port=8585"
+                            , "-Dcom.sun.management.jmxremote.local.only=false"
+                            , "-Dcom.sun.management.jmxremote.authenticate=false"
+                            , "-Dcom.sun.management.jmxremote.ssl=false" ]
+
+repositories {
+    mavenLocal()
+    jcenter()
+    maven { url "https://clojars.org/repo" }
+}
+
+ext {
+    excimerVersion = '0.1.0-SNAPSHOT'
+    junitVersion   = '4.12'
+    nreplVersion   = '0.2.6'
+    slf4jVersion   = '1.7.9'
+    springVersion  = '4.1.3.RELEASE'
+}
+
+dependencies {
+    compile "org.slf4j:slf4j-api:${slf4jVersion}"
+    compile "excimer:excimer:${excimerVersion}"
+    compile "org.springframework:spring-core:${springVersion}"
+    compile "org.springframework:spring-context:${springVersion}"
+    runtime "org.clojure:tools.nrepl:${nreplVersion}"
+    testCompile "junit:junit:${junitVersion}"
+}
