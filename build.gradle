@@ -1,5 +1,6 @@
 apply plugin: 'application'
 apply plugin: 'java'
+apply plugin: 'war'
 apply plugin: 'com.github.ben-manes.versions'
 
 buildscript {
@@ -36,8 +37,10 @@ ext {
 dependencies {
     compile "org.slf4j:slf4j-api:${slf4jVersion}"
     compile "excimer:excimer:${excimerVersion}"
+    providedCompile 'javax.servlet:servlet-api:2.5'
     compile "org.springframework:spring-core:${springVersion}"
     compile "org.springframework:spring-context:${springVersion}"
+    compile "org.springframework:spring-webmvc:${springVersion}"
     runtime "org.clojure:tools.nrepl:${nreplVersion}"
     testCompile "junit:junit:${junitVersion}"
 }
