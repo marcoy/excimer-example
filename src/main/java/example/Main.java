@@ -11,8 +11,10 @@ public class Main {
         ctx.refresh();
 
         final NREPLServer nreplServer = ctx.getBean("nreplServer", NREPLServer.class);
+        nreplServer.startServer();
         System.out.println(nreplServer);
         System.out.println(nreplServer.isRunning());
+        System.out.println(nreplServer.getPort());
 
         while (true) {
             Thread.sleep(10000);
