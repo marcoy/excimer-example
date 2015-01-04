@@ -27,7 +27,7 @@ repositories {
 }
 
 ext {
-    excimerVersion = '0.1.1'
+    excimerVersion = '0.1.2'
     junitVersion   = '4.12'
     logbackVersion = '1.1.2'
     nreplVersion   = '0.2.6'
