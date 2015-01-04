@@ -13,14 +13,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @EnableWebMvc
 @EnableMBeanExport
 @ComponentScan(basePackages = {"example.controller"})
-public class ExampleWebConfiguration extends WebMvcConfigurerAdapter {
+public class ExampleWebConfiguration {
     @Bean
     public NREPLServer nreplServer() {
         return new NREPLServer();
-    }
-
-    @Override
-    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
-        configurer.enable();
     }
 }

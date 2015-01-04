@@ -14,7 +14,7 @@ public class ExampleController {
 
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
     public String hello(@RequestParam(value = "name", defaultValue = "World") String name) {
-        LOGGER.info("hello() called");
+        LOGGER.info("hello() called with name = {}", name);
         return name;
     }
 }
